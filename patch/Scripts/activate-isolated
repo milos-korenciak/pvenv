@@ -79,7 +79,7 @@ if ! [ -z "${_OLD_VIRTUAL_PATH:+_}" ] ; then
     echo "_OLD_VIRTUAL_PATH: $_OLD_VIRTUAL_PATH"
 fi
 # set new PATH
-PATH="$VIRTUAL_ENV/bin:$PATH"
+PATH="$VIRTUAL_ENV/bin"
 export PATH
 
 # unset PYTHONHOME if set
