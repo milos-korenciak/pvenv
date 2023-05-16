@@ -120,7 +120,9 @@ python -c "import matplotlib.pyplot as plt; plt.plot(range(10), range(10,0,-1));
 Try something more advanced
 ==================
 
-
+You can install any package / software (even non-pythonic) in conda.
+Check official anaconda (https://anaconda.org/anaconda) OR conda-forge 
+(https://anaconda.org/conda-forge) repositories.
 
 Add ruby
 --------
@@ -138,7 +140,6 @@ Add QGis
 ```bash
 # once in working & activated env
 python -m conda install qgis -c conda-forge
-# we do have qgis installed ;-)
+# run qgis
 qgis
 ```
-
