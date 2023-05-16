@@ -1,2 +1,7 @@
 P(ortable) V(irtual)env
 ==================
+
+This is Portable conda virtualenv. Just 1. download, 2. unarchive, 3. activate and 4. GO!
+
+* PVenv works purely in userspace in the dir with RW access.
+* PVenv
