@@ -8,10 +8,10 @@ This is Portable conda virtualenv. Just 1. download, 2. unarchive, 3. activate a
 * = Mutiplatform. (Build on the shoulder of the TITANS - anaconda.com.) =
 * = Portable - you can just copy it to next place OR user. * (Until installed non-portable software.) =
 
-/* Non-portable libraries hardcode the PATH where they are. Read more here.
+/* Non-portable libraries hardcode the PATH where they are, thus making PVenv no more portable, despite works where installed. Read more here.
 
-How to use
-==========
+How to basic use
+================
 
 Linux AMD64 (+ docker)
 ----------------------
@@ -50,14 +50,14 @@ python -c "import matplotlib.pyplot as plt; plt.plot(range(10), range(10,0,-1));
 Windows AMD64 powershell (+ docker Win containers)
 ----------------------
 
-(You can use even .tar.xz archive instead of self-extracting .exe archive.)
+(Works for Win8+. You can use even .tar.xz archive instead of self-extracting .exe archive.)
 
 ```bash
 # in the directory you want
 # download
-https://.../venv3.10_win_amd64.exe
+Invoke-WebRequest "https://.../venv3.10_win_amd64.exe" -outfile venv.exe
 # unarchive
-
+& .\venv.exe -y -o.
 # activate
 . venv3.10/bin/activate
 # ... and go, go, go!
@@ -69,14 +69,14 @@ python -c "import matplotlib.pyplot as plt; plt.plot(range(10), range(10,0,-1));
 Windows AMD64 cmd (+ docker Win containers)
 ----------------------
 
-()
+(Works for Win8+. You can use even .tar.xz archive instead of self-extracting .exe archive.)
 
 ```bash
 # in the directory you want
 # download & unarchive
 wget -qO- https://.../venv3.10_win_amd64.tar.xz | tar xvJf -
 # activate
-. venv3.10/bin/activate
+venv3.10/bin/activate.bat
 # ... and go, go, go!
 python -m pip install -U pip setuptools
 python -m pip install -U matplotlib
@@ -116,3 +116,29 @@ python -m pip install -U pip setuptools
 python -m pip install -U matplotlib
 python -c "import matplotlib.pyplot as plt; plt.plot(range(10), range(10,0,-1)); plt.show()"
 ```
+
+Try something more advanced
+==================
+
+
+
+Add ruby
+--------
+
+```bash
+# once in working & activated env
+python -m conda install ruby
+# we do have ruby now ;-)
+ruby -e "print('Hi')"
+```
+
+Add QGis
+--------
+
+```bash
+# once in working & activated env
+python -m conda install qgis -c conda-forge
+# we do have qgis installed ;-)
+qgis
+```
+
