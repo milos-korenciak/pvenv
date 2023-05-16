@@ -27,21 +27,92 @@ wget -qO- https://.../venv3.10_lin_amd64.tar.xz | tar xvJf -
 # ... and go, go, go!
 python -m pip install -U pip setuptools
 python -m pip install -U matplotlib
-python -c "import "
+python -c "import matplotlib.pyplot as plt; plt.plot(range(10), range(10,0,-1)); plt.show()"
 ```
 
 Linux ARM64 (+ docker in ARM MacOS)
 ----------------------
 
-Windows AMD64 (+ docker Win containers)
+(Requires ```$ apt install -y wget ca-certificates xz-utils```.)
+
+```bash
+# in the directory you want
+# download & unarchive
+wget -qO- https://.../venv3.10_lin_arm64.tar.xz | tar xvJf -
+# activate
+. venv3.10/bin/activate
+# ... and go, go, go!
+python -m pip install -U pip setuptools
+python -m pip install -U matplotlib
+python -c "import matplotlib.pyplot as plt; plt.plot(range(10), range(10,0,-1)); plt.show()"
+```
+
+Windows AMD64 powershell (+ docker Win containers)
 ----------------------
 
-Windows ARM64
--------------
+(You can use even .tar.xz archive instead of self-extracting .exe archive.)
+
+```bash
+# in the directory you want
+# download
+https://.../venv3.10_win_amd64.exe
+# unarchive
+
+# activate
+. venv3.10/bin/activate
+# ... and go, go, go!
+python -m pip install -U pip setuptools
+python -m pip install -U matplotlib
+python -c "import matplotlib.pyplot as plt; plt.plot(range(10), range(10,0,-1)); plt.show()"
+```
+
+Windows AMD64 cmd (+ docker Win containers)
+----------------------
+
+()
+
+```bash
+# in the directory you want
+# download & unarchive
+wget -qO- https://.../venv3.10_win_amd64.tar.xz | tar xvJf -
+# activate
+. venv3.10/bin/activate
+# ... and go, go, go!
+python -m pip install -U pip setuptools
+python -m pip install -U matplotlib
+python -c "import matplotlib.pyplot as plt; plt.plot(range(10), range(10,0,-1)); plt.show()"
+```
 
 MacOS AMD64
 -----------
 
+(Requires just core OS. Maybe check GateKeeper permissions.)
+
+```bash
+# in the directory you want
+# download & unarchive
+curl https://.../venv3.10_mac_amd64.tar.xz | tar xvJf -
+# activate
+. venv3.10/bin/activate
+# ... and go, go, go!
+python -m pip install -U pip setuptools
+python -m pip install -U matplotlib
+python -c "import matplotlib.pyplot as plt; plt.plot(range(10), range(10,0,-1)); plt.show()"
+```
+
 MacOS ARM64
 -----------
 
+(Requires just core OS. Maybe check GateKeeper permissions.)
+
+```bash
+# in the directory you want
+# download & unarchive
+curl https://.../venv3.10_mac_arm64.tar.xz | tar xvJf -
+# activate
+. venv3.10/bin/activate
+# ... and go, go, go!
+python -m pip install -U pip setuptools
+python -m pip install -U matplotlib
+python -c "import matplotlib.pyplot as plt; plt.plot(range(10), range(10,0,-1)); plt.show()"
+```
