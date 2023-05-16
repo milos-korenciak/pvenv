@@ -2,12 +2,11 @@
 # This file must be used with "source Scripts/activate" OR ". Scripts/activate"
 # *from bash / zsh / sh * . You SHOULD NOT run it in subprocess
 # (e.g. "bash Scripts/activate").
-# This file allows PVenv tools only = always STABLE, secure, robust, but 
-# limiting (esp. for system-wide tools). Install everything you need inside 
-# this PVenv.
+# This file allows PVenv tools preceding the system ones after activation. This
+# can lead to clashes. E.g.: nuitka inside PVenv along system-wide Intel C
+# Compiler installation.
 
-# --->  Consider running 'activate-nonisolated' conterpart beside to have  <---
-# --->  system-wide tools & programs available.                            <---
+# --->   Consider running 'activate-isolated' conterpart for PRODUCTION.   <---
 
 
 if [ "${BASH_SOURCE-}" = "$0" ]; then
@@ -89,7 +88,7 @@ fi
 # ! Set new PATH in ISOLATED way. This will allow PVenv executables ONLY!
 # Always stable, secure, robust, but limiting (esp. for system-wide tools).
 # Install everything you need inside this PVenv.
-PATH="$VIRTUAL_ENV/bin"
+PATH="$VIRTUAL_ENV/bin:$PATH"
 export PATH
 
 # unset PYTHONHOME if set
