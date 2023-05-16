@@ -3,5 +3,28 @@ P(ortable) V(irtual)env
 
 This is Portable conda virtualenv. Just 1. download, 2. unarchive, 3. activate and 4. GO!
 
-* PVenv works purely in userspace in the dir with RW access.
-* PVenv
+* = PVenv works purely in userspace in the dir with RW access. =
+* = PVenv is isolated into its directory only (in install time, not runtime). =
+* = PVenv is mutiplatform. (Build on the shoulder of the TITANS - anaconda.com.) =
+
+How to use
+==========
+
+Linux AMD64 (+ docker)
+----------------------
+
+Linux ARM64 (+ docker in ARM MacOS)
+----------------------
+
+Windows AMD64 (+ docker Win containers)
+----------------------
+
+Windows ARM64
+-------------
+
+MacOS AMD64
+-----------
+
+MacOS ARM64
+-----------
+
