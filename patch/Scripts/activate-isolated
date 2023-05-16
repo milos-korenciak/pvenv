@@ -1,6 +1,7 @@
- 
-# This file must be used with "source bin/activate" *from bash* you cannot run
-# it directly
+
+# This file must be used with "source Scripts/activate-isolated" OR 
+# ". Scripts/activate-isolated" *from bash / zsh / sh * . You SHOULD NOT run it
+# in subprocess (e.g. "bash Scripts/activate").
 # This file allows PVenv tools only = always STABLE, secure, robust, but 
 # limiting (esp. for system-wide tools). Install everything you need inside 
 # this PVenv.
