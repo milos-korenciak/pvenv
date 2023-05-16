@@ -1,3 +1,13 @@
+ 
+REM This file must be used with "Scripts/activate.bat" *from cmd*. You SHOULD 
+REM NOT run it in subprocess (e.g. 'cmd Scripts/activate.bat')
+REM This file allows PVenv tools only = always STABLE, secure, robust, but 
+REM limiting (esp. for system-wide tools). Install everything you need inside 
+REM this PVenv.
+
+REM --->  Consider running 'activate-nonisolated.bat' counterpart beside   <---
+REM --->  to have system-wide tools & programs available.                  <---
+
 @echo off
 set "SCRIPTS_DIR=%~dp0"
 set "VIRTUAL_ENV=%SCRIPTS_DIR%.."
@@ -10,9 +20,7 @@ if defined _OLD_VIRTUAL_PROMPT (
     )
     set "_OLD_VIRTUAL_PROMPT=%PROMPT%"
 )
-set "PYTHON_VERSION=$(%VIRTUAL_ENV%\python.exe -c 'import sys; vi=sys.version_info; print(\"%s.%s\" %(vi.major, vi.minor))')"
-set "CONDA_DEFAULT_ENV=PVenv%PYTHON_VERSION%"
-set "PROMPT=(%CONDA_DEFAULT_ENV%)%PROMPT%"
+set "PROMPT=(venv3.9)%PROMPT%"
 
 REM Don't use () to avoid problems with them in %PATH%
 if defined _OLD_VIRTUAL_PYTHONHOME goto ENDIFVHOME
@@ -30,11 +38,13 @@ if defined _OLD_VIRTUAL_PATH goto ENDIFVPATH2
     set "_OLD_VIRTUAL_PATH=%PATH%"
 :ENDIFVPATH2
 
+REM ! Set new PATH in ISOLATED way. This will allow PVenv executables ONLY!
+REM Always stable, secure, robust, but limiting (esp. for system-wide tools).
+REM Install everything you need inside this PVenv.
+REM (We have omitted %PATH% at the end. E.g. Intel compiler (tools) can interfere /w numba precompilations.)
 set "PATH=%VIRTUAL_ENV%;%SCRIPTS_DIR%;%VIRTUAL_ENV%\Library\mingw-w64\bin;%VIRTUAL_ENV%\Library\usr\bin;%VIRTUAL_ENV%\Library\bin;%VIRTUAL_ENV%\bin;%VIRTUAL_ENV%\condabin"
-REM We have omitted %PATH% at the end. We want fully isolated Win PATH if possible.
-REM E.g. Intel compiler (tools) on path interfere /w numba precompilation of sun_geometry causing SDAT to crash.
 
-
+set "CONDA_DEFAULT_ENV=venv3.9"
 set "CONDA_EXE=%SCRIPTS_DIR%\conda.exe"
 set "CONDA_PREFIX=%VIRTUAL_ENV%"
 set "CONDA_PROMPT_MODIFIER=(%CONDA_DEFAULT_ENV%)"
