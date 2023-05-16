@@ -85,9 +85,8 @@ if ! [ -z "${_OLD_VIRTUAL_PATH:+_}" ] ; then
     echo "_OLD_VIRTUAL_PATH: $_OLD_VIRTUAL_PATH"
 fi
 
-# ! Set new PATH in ISOLATED way. This will allow PVenv executables ONLY!
-# Always stable, secure, robust, but limiting (esp. for system-wide tools).
-# Install everything you need inside this PVenv.
+# ! Set new PATH. Precede PVenv over system !
+# Note possible clashes of subprogramms.
 PATH="$VIRTUAL_ENV/bin:$PATH"
 export PATH
 
