@@ -3,15 +3,32 @@ P(ortable) V(irtual)env
 
 This is Portable conda virtualenv. Just 1. download, 2. unarchive, 3. activate and 4. GO!
 
-* = PVenv works purely in userspace in the dir with RW access. =
-* = PVenv is isolated into its directory only (in install time, not runtime). =
-* = PVenv is mutiplatform. (Build on the shoulder of the TITANS - anaconda.com.) =
+* = Works purely in userspace in the dir with just RW access. (No extra admin rights needed.) =
+* = Isolated into its directory only. (In install time, not runtime.) =
+* = Mutiplatform. (Build on the shoulder of the TITANS - anaconda.com.) =
+* = Portable - you can just copy it to next place OR user. * (Until installed non-portable software.) =
+
+/* Non-portable libraries hardcode the PATH where they are. Read more here.
 
 How to use
 ==========
 
 Linux AMD64 (+ docker)
 ----------------------
+
+(Requires ```$ apt install -y wget ca-certificates xz-utils```.)
+
+```bash
+# in the directory you want
+# download & unarchive
+wget -qO- https://.../venv3.10_lin_amd64.tar.xz | tar xvJf -
+# activate
+. venv3.10/bin/activate
+# ... and go, go, go!
+python -m pip install -U pip setuptools
+python -m pip install -U matplotlib
+python -c "import "
+```
 
 Linux ARM64 (+ docker in ARM MacOS)
 ----------------------
