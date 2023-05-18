@@ -22,9 +22,9 @@ jobs:
     # multiple invocations
     strategy:
       matrix:
-        CHANNEL: [ "anaconda", "conda-forge" ]
-        ARCH: [ "osx-64", "linux-64", "win-64", "linux-aarch64", "osx-arm64" ] # "win-32"
-        PY_MINOR_VERSION: [ "7", "8", "9", "10", "11" ]
+        CHANNEL: [ "conda-forge" ]  # "anaconda", 
+        ARCH: [ "linux-64", ]  # "osx-64", "win-64", ]  # "linux-aarch64", "osx-arm64" ] # "win-32"
+        PY_MINOR_VERSION: [ "11" ]  # "7", "8", "9", "10", 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
