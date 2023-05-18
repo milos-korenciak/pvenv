@@ -143,3 +143,8 @@ python -m conda install qgis -c conda-forge
 # run qgis
 qgis
 ```
+
+Credits
+=======
+
+This is just (mini)conda (https://docs.conda.io/en/latest/miniconda.html) environment made relative-path based. It can be still improved, so write an issue if something spotted, pls. I appreciate it.
