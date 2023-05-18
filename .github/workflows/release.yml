@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     # multiple invocations
     strategy:
+      max-parallel: 4
       matrix:
         CHANNEL: [ "conda-forge" ]  # "anaconda", 
         ARCH: [ "linux-64", ]  # "osx-64", "win-64", ]  # "linux-aarch64", "osx-arm64" ] # "win-32"
