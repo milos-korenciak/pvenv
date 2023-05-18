@@ -28,26 +28,31 @@ jobs:
         CHANNEL: [ "conda-forge" ]  # "anaconda", 
         ARCH: [ "linux-64", ]  # "osx-64", "win-64", ]  # "linux-aarch64", "osx-arm64" ] # "win-32"
         PY_MINOR_VERSION: [ "11" ]  # "7", "8", "9", "10", 
+    env:
+      SERVER: production
+      PY_VERSION: "3.${{ matrix.PY_MINOR_VERSION }}"
+      PY_SHORT: "3${{ matrix.PY_MINOR_VERSION }}"
+      ARCH: "${{ matrix.ARCH }}"
+      CHANNEL: "${{ matrix.CHANNEL }}"
+      VENV_NAME: "venv3.${{ matrix.PY_MINOR_VERSION }}_${{ matrix.ARCH }}"
+      PVENV_PATH: "/tmp/venv3.${{ matrix.PY_MINOR_VERSION }}"
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: "Create PVenv /w conda on given Py version, fix it to portable / relative, archive, publish"
+      - name: "Create PVenv /w conda on given Py version"
         run: |
-          export PY_VERSION="3.${{ matrix.PY_MINOR_VERSION }}"
-          export PY_SHORT="3${{ matrix.PY_MINOR_VERSION }}"
-          export ARCH="${{ matrix.ARCH }}"
-          export CHANNEL="${{ matrix.CHANNEL }}"
-          export VENV_NAME="venv${PY_VERSION}_${ARCH}"
-          export PVENV_PATH="/tmp/venv${PY_VERSION}"
           echo "Build python v${PY_VERSION} for ${ARCH} architecture from ${CHANNEL} channel in ${PVENV_PATH}"
           conda create -c "${CHANNEL}/${ARCH}" --prefix "$PVENV_PATH" -y conda "python=${PY_VERSION}"
+      - name: "Inspect what we have got"
+        run: |
           ls ./patch/bin
           ls ./patch/Scripts
-          escape exact bytes
           ls ${PVENV_PATH}/bin || true
           ls ${PVENV_PATH}/Scripts || true
+      - name: "Fix PVenv to portable / relative"
+        run: |
           if [ -d "${PVENV_PATH}/Scripts" ]; then rm -rfv "${PVENV_PATH}/Scripts" ; cp -frv ./patch/Scripts "${PVENV_PATH}" ; fi
           if just to python executable exists there...
           if [ -f "${PVENV_PATH}/bin/python" ]; then cp -fv "${PVENV_PATH}/bin/python"* ./patch/bin/ ; rm -rfv "${PVENV_PATH}/bin" ; cp -frv ./patch/bin "${PVENV_PATH}" ; fi
@@ -57,9 +62,14 @@ jobs:
           rm -rfv ${PVENV_PATH}/share/man
           rm -rfv ${PVENV_PATH}/share/info
           rm -rfv ${PVENV_PATH}/share/doc
+      - name: "Archive"
+        run: |
           ls -la ${PVENV_PATH}
           ORIG_DIR=$(pwd)
           cd $(dirname "${PVENV_PATH}")
           tar -cJf pvenv-cp${PY_VERSION}-${ARCH}.tar.xz $(basename "${PVENV_PATH}" )
           mv *.tar.xz $ORIG_DIR
           cd $ORIG_DIR
+      - name: "Publish"
+        run: |
+          echo "? Publish?"
