@@ -54,7 +54,7 @@ jobs:
       - name: "Fix PVenv to portable / relative"
         run: |
           if [ -d "${PVENV_PATH}/Scripts" ]; then rm -rfv "${PVENV_PATH}/Scripts" ; cp -frv ./patch/Scripts "${PVENV_PATH}" ; fi
-          if just to python executable exists there...
+          # if just python executable exists there...
           if [ -f "${PVENV_PATH}/bin/python" ]; then cp -fv "${PVENV_PATH}/bin/python"* ./patch/bin/ ; rm -rfv "${PVENV_PATH}/bin" ; cp -frv ./patch/bin "${PVENV_PATH}" ; fi
           rm -rfv ${PVENV_PATH}/envs
           rm -rfv ${PVENV_PATH}/man
@@ -65,7 +65,7 @@ jobs:
       - name: "Archive"
         run: |
           ls -la ${PVENV_PATH}
-          ORIG_DIR=$(pwd)
+          export ORIG_DIR=$(pwd)
           cd $(dirname "${PVENV_PATH}")
           tar -cJf pvenv-cp${PY_VERSION}-${ARCH}.tar.xz $(basename "${PVENV_PATH}" )
           mv *.tar.xz $ORIG_DIR
