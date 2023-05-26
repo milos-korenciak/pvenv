@@ -1,5 +1,5 @@
 P(ortable) V(irtual)env
-==================
+=======================
 
 This is Portable conda virtualenv. Just 1. download, 2. unarchive, 3. activate and 4. GO!
 
@@ -31,7 +31,7 @@ python -c "import matplotlib.pyplot as plt; plt.plot(range(10), range(10,0,-1));
 ```
 
 Linux ARM64 (+ docker in ARM MacOS)
-----------------------
+-----------------------------------
 
 (Requires ```$ apt install -y wget ca-certificates xz-utils```.)
 
@@ -48,7 +48,7 @@ python -c "import matplotlib.pyplot as plt; plt.plot(range(10), range(10,0,-1));
 ```
 
 Windows AMD64 powershell (+ docker Win containers)
-----------------------
+--------------------------------------------------
 
 (Works for Win8+. You can use even .tar.xz archive instead of self-extracting .exe archive.)
 
@@ -67,7 +67,7 @@ python -c "import matplotlib.pyplot as plt; plt.plot(range(10), range(10,0,-1));
 ```
 
 Windows AMD64 cmd (+ docker Win containers)
-----------------------
+-------------------------------------------
 
 (Works for Win8+. You can use even .tar.xz archive instead of self-extracting .exe archive.)
 
@@ -118,7 +118,7 @@ python -c "import matplotlib.pyplot as plt; plt.plot(range(10), range(10,0,-1));
 ```
 
 Try something more advanced
-==================
+===========================
 
 You can install any package / software (even non-pythonic) in conda.
 Check official anaconda (https://anaconda.org/anaconda) OR conda-forge 
