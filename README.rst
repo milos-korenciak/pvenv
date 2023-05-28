@@ -16,9 +16,9 @@ How to basic use
 Linux AMD64 (+ docker)
 ----------------------
 
-(Requires ```$ apt install -y wget ca-certificates xz-utils```.)
+(Requires `$ apt install -y wget ca-certificates xz-utils`.)
 
-```bash
+`
 # in the directory you want
 # download & unarchive
 wget -qO- https://.../venv3.10_lin_amd64.tar.xz | tar xvJf -
@@ -28,7 +28,7 @@ wget -qO- https://.../venv3.10_lin_amd64.tar.xz | tar xvJf -
 python -m pip install -U pip setuptools
 python -m pip install -U matplotlib
 python -c "import matplotlib.pyplot as plt; plt.plot(range(10), range(10,0,-1)); plt.show()"
-```
+`
 
 Linux ARM64 (+ docker in ARM MacOS)
 -----------------------------------
